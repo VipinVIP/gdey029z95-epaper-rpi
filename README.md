@@ -47,8 +47,10 @@ sudo pip3 install spidev gpiozero
 python3 text_demo.py
 
 # Photo display
-python3 photo_display.py photo.jpg                 # Atkinson (default)
-python3 photo_display.py photo.jpg --dither floyd   # Floyd-Steinberg
+python3 photo_display.py photo.jpg                 # Atkinson + red (default)
+python3 photo_display.py photo.jpg --dither floyd  # Floyd + red
+python3 photo_display.py photo.jpg --bw            # B/W only (Atkinson)
+python3 photo_display.py photo.jpg --bw --dither floyd  # B/W Floyd
 ```
 
 ## Display Controller
