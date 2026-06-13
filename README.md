@@ -2,6 +2,9 @@
 
 Python driver and utilities for the **Good Display GDEY029Z95** 2.9″ 3‑colour (black/white/red) e‑paper display, driven by an **SSD1680** controller via SPI on a **Raspberry Pi**.
 
+<br>
+<img width="296" height="128" alt="example" src="https://github.com/user-attachments/assets/379e7c5e-17fe-4cf1-a1c3-fd123e927731"/>
+
 ## Materials
 
 - **Display:** [GoodDisplay 2.9″ 296×128 Tri-color E-ink Screen](https://robu.in/product/gooddisplay-2-9-inch-296x128-tri-color-e-ink-screen-e-paper-display/)
