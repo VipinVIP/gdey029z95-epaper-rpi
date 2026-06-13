@@ -1,0 +1,4 @@
+*.pyc
+__pycache__/
+pic.jpg
+display_output.jpg
