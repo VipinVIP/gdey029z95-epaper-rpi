@@ -1,6 +1,12 @@
 # GDEY029Z95 E-Paper Display — Raspberry Pi
 
-Python driver and utilities for the **Good Display GDEY029Z95** / Waveshare-compatible 2.9″ 3‑colour (black/white/red) e‑paper display, driven by an **SSD1680** controller via SPI on a **Raspberry Pi**.
+Python driver and utilities for the **Good Display GDEY029Z95** 2.9″ 3‑colour (black/white/red) e‑paper display, driven by an **SSD1680** controller via SPI on a **Raspberry Pi**.
+
+## Materials
+
+- **Display:** [GoodDisplay 2.9″ 296×128 Tri-color E-ink Screen](https://robu.in/product/gooddisplay-2-9-inch-296x128-tri-color-e-ink-screen-e-paper-display/)
+- **Adapter:** [DESPI-C02 E-Paper HAT Connection Board](https://robu.in/product/e-paper-hat-connection-adapter-board/)
+
 
 ## Wiring
 
@@ -15,9 +21,12 @@ Python driver and utilities for the **Good Display GDEY029Z95** / Waveshare-comp
 | RES                 | Pin 11 (GPIO17)            |
 | BUSY                | Pin 18 (GPIO24)            |
 
-> SPI0 uses default pins (SCLK=GPIO11, MOSI=GPIO10, CE0=GPIO8) — handled automatically by spidev. Only D/C, RES, and BUSY need explicit GPIO wiring.
+> SPI0 uses default pins — handled automatically by spidev. Only D/C (GPIO25), RES (GPIO17), and BUSY (GPIO24) need explicit GPIO wiring.
+>
 >
 > **⚠ The e‑paper module is 3.3V only — never connect 5V.**
+>
+> **⚠ On the DESPI-C02 board, set the switch to the 0.47 position (not 2.2).**
 
 ## Files
 
@@ -25,7 +34,7 @@ Python driver and utilities for the **Good Display GDEY029Z95** / Waveshare-comp
 |------|-------------|
 | [`epd_driver.py`](epd_driver.py) | Core driver — init, buffer conversion, display refresh, sleep |
 | [`text_demo.py`](text_demo.py)   | Display black/red text on white background |
-| [`photo_display.py`](photo_display.py) | Display photos with Floyd–Steinberg dithering + optional red‑channel detection |
+| [`photo_display.py`](photo_display.py) | Display photos with Atkinson dithering (default) or Floyd-Steinberg |
 
 ## Quick Start
 
@@ -37,18 +46,10 @@ sudo pip3 install spidev gpiozero
 # Text demo
 python3 text_demo.py
 
-# Photo display (B/W dithered)
-python3 photo_display.py photo.jpg              # Atkinson (default)
-python3 photo_display.py photo.jpg --dither floyd  # Floyd-Steinberg
+# Photo display
+python3 photo_display.py photo.jpg                 # Atkinson (default)
+python3 photo_display.py photo.jpg --dither floyd   # Floyd-Steinberg
 ```
-
-## Files
-
-| File | Description |
-|------|-------------|
-| [`epd_driver.py`](epd_driver.py) | Core driver — init, buffer conversion, display refresh, sleep |
-| [`text_demo.py`](text_demo.py)   | Display black/red text on white background |
-| [`photo_display.py`](photo_display.py) | Display photos with Floyd–Steinberg dithering |
 
 ## Display Controller
 
