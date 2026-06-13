@@ -38,7 +38,8 @@ sudo pip3 install spidev gpiozero
 python3 text_demo.py
 
 # Photo display (B/W dithered)
-python3 photo_display.py photo.jpg
+python3 photo_display.py photo.jpg              # Atkinson (default)
+python3 photo_display.py photo.jpg --dither floyd  # Floyd-Steinberg
 ```
 
 ## Files
